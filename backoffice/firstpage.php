@@ -14,7 +14,8 @@ $all_enregistrement = getAllEnregistrement($dbh, $_SESSION['id']);
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="../datatable/media/css/jquery.dataTables.css">
-  <link rel="stylesheet" type="text/css" href="../css/backoffStyle.css">
+  	<link rel="stylesheet" type="text/css" href="../css/backoffStyle.css">
+	<link rel="stylesheet" href="../css/formulaire.css" />
 	<style type="text/css" class="init">
 
 	</style>
@@ -46,7 +47,7 @@ $all_enregistrement = getAllEnregistrement($dbh, $_SESSION['id']);
                 
             </ul>
         </div>
-    </div>
+    	
 </nav>
 
 <div class="block-left ">
@@ -84,10 +85,53 @@ $all_enregistrement = getAllEnregistrement($dbh, $_SESSION['id']);
 
       			</tr>
       		  </thead>
+      		  <tbody>
+      		  	<?php
+      		  		foreach ($all_enregistrement as $key) {
+      		  			echo "<tr>";
+      		  			echo "<td>" .$key['id']. "</td>";
+      		  			echo "<td>" .$key['title']. "</td>";
+      		  			echo "<td>" .$key['created']. "</td>";
+      		  			echo "<td>TOTO</td>";
+      		  			echo "</tr>";
+      		  		}
+      		  	?>
+      		  </tbody>
       	  </table>
         </div>
   </div>
+  <form id="formulaire" action="../php/new_enregistrement.php" method="post">
+        <div class="form-group">
+            <input name="Title" type="text" class="form-control input-lg" placeholder="Title">
+        </div>
+        <div class="form-group">
+            <input name="Estimote Id" type="password" class="form-control input-lg" placeholder="Estimote Id">
+        </div>
+        <div class="form-group">
+            <input id="1" type="radio" placeholder="Estimote Id"> : Time </br>
+            <input id="2" type="radio" placeholder="Estimote Id"> : Count Bystanders</br>
+            <input id="3" type="radio" placeholder="Estimote Id"> : Html View</br>
+        </div>
 
-
+        <div class="form-group">
+            <button class="btn btn-danger btn-lg btn-block">Create</button>
+        </div>
+</form>
   </body>
+
+
+
+  <script>
+  $("#formulaire").click(function(){
+     
+    $.ajax({
+       url : '../php/formulaire_enregistrement.php', // La ressource ciblée
+       type : 'GET',
+       success: function(data){
+        $("#contenu_dyna").html(data);
+        }
+    	});
+	});
+  </script>
+
 
