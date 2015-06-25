@@ -118,32 +118,51 @@ $all_enregistrement = getAllEnregistrement($dbh, $_SESSION['id']);
             <input id="2" type="checkbox" placeholder="Estimote Id"> : Count Bystanders</br>
             <input id="3" type="checkbox" placeholder="Estimote Id"> : Html View</br>
         </div>
-          <div class="form-group ckeditor-Adds">
-           
-            
-          
-           
+          <div class="form-group ckeditor-Adds">                 
+            <textarea id="editor" hidden="true" name="test"></textarea>           
           </div>
         <div class="form-group">
-            <button class="btn btn-danger btn-lg btn-block">Create</button>
+        	<input type="text" id="select" name="button" hidden="true"></span>
+        </div>
+        <div class="form-group">
+            <button id="create" class="btn btn-danger btn-lg btn-block">Create</button>
         </div>
 </form>
 </div>
 <script>
 
 var box = 0;
-  $("#3").click(function(){
-    if (box != 3) {
-     var obj=document.createElement('textarea');
-     obj.setAttribute("name", "editor1");
-     obj.setAttribute("id", "editor")
-     $(".ckeditor-Adds").append(obj);
-    CKEDITOR.replace( 'editor1');
-    box = 3;
-    }else{
-      $("#cke_editor").hide();
-      $("textarea").remove();
-  };
+  
+$("#3").click(function(){
+	if (box != 3) {
+		CKEDITOR.replace('test');
+		console.log(CKEDITOR.instances['editor']);
+
+		box = 3
+	} else {
+		CKEDITOR.instances.editor.destroy();
+		box = 0
+	}
+});
+
+
+$("#2").click(function(){
+	if (box != 2)
+		box = 2
+	else
+		box = 0
+});
+
+
+$("#1").click(function(){
+	if (box != 1)
+		box = 1
+	else
+		box = 0
+});
+
+$("#create").click(function(){
+	$("#select").attr("value", box)
 });
 </script>
   </body>
