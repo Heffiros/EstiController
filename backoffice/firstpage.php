@@ -108,9 +108,9 @@ $all_enregistrement = getAllEnregistrement($dbh, $_SESSION['id']);
             <input name="Estimote Id" type="password" class="form-control input-lg" placeholder="Estimote Id">
         </div>
         <div class="form-group">
-            <input id="1" type="radio" placeholder="Estimote Id"> : Time </br>
-            <input id="2" type="radio" placeholder="Estimote Id"> : Count Bystanders</br>
-            <input id="3" type="radio" placeholder="Estimote Id"> : Html View</br>
+            <input id="1" type="checkbox" placeholder="Estimote Id"> : Time </br>
+            <input id="2" type="checkbox" placeholder="Estimote Id"> : Count Bystanders</br>
+            <input id="3" type="checkbox" placeholder="Estimote Id"> : Html View</br>
         </div>
 
         <div class="form-group">
