@@ -1,8 +1,8 @@
+
 .tabe{
-	margin-top: 15%;
+	margin-top: 10%;
 	margin-left: 20%;
 	position: absolute;
-	border-bottom: 1px solid black;
 }
 
 .block-left{
@@ -61,4 +61,18 @@
 	width: 100%;
 	color: black;
 }
+.form-form{
+position: absolute;
+width: 900px;
+margin-left: 25%;
+margin-top: 20%
+}
 
+#formulaire {
+}
+
+
+.hidden-editor{
+
+	visibility: visible;
+}

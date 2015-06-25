@@ -15,12 +15,14 @@ $all_enregistrement = getAllEnregistrement($dbh, $_SESSION['id']);
     <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="../datatable/media/css/jquery.dataTables.css">
   	<link rel="stylesheet" type="text/css" href="../css/backoffStyle.css">
-	<link rel="stylesheet" href="../css/formulaire.css" />
+
 	<style type="text/css" class="init">
 
 	</style>
 	<script type="text/javascript" language="javascript" src="../datatable/media/js/jquery.js"></script>
 	<script type="text/javascript" language="javascript" src="../datatable/media/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" language="javascript" src="../ckeditor/ckeditor.js"></script>
+  <script type="text/javascript" language="javascript" src="../js/scripts.js"></script>
 	<script type="text/javascript" language="javascript" class="init">
 	$(document).ready(function() {
     	$('#enregistrement').DataTable();
@@ -72,6 +74,8 @@ $all_enregistrement = getAllEnregistrement($dbh, $_SESSION['id']);
 
 </div>
 
+
+
     <div class="tabe col-md-offset-2">
       	 <div class="container">
       	   <table id="enregistrement" class="display" cellspacing="0" width="100%">
@@ -98,8 +102,10 @@ $all_enregistrement = getAllEnregistrement($dbh, $_SESSION['id']);
       		  	?>
       		  </tbody>
       	  </table>
+
         </div>
   </div>
+<div class="form-form">
   <form id="formulaire" action="../php/new_enregistrement.php" method="post">
         <div class="form-group">
             <input name="Title" type="text" class="form-control input-lg" placeholder="Title">
@@ -112,26 +118,37 @@ $all_enregistrement = getAllEnregistrement($dbh, $_SESSION['id']);
             <input id="2" type="checkbox" placeholder="Estimote Id"> : Count Bystanders</br>
             <input id="3" type="checkbox" placeholder="Estimote Id"> : Html View</br>
         </div>
-
+          <div class="form-group ckeditor-Adds">
+           
+            
+          
+           
+          </div>
         <div class="form-group">
             <button class="btn btn-danger btn-lg btn-block">Create</button>
         </div>
 </form>
+</div>
+<script>
+
+var box = 0;
+  $("#3").click(function(){
+    if (box != 3) {
+     var obj=document.createElement('textarea');
+     obj.setAttribute("name", "editor1");
+     obj.setAttribute("id", "editor")
+     $(".ckeditor-Adds").append(obj);
+    CKEDITOR.replace( 'editor1');
+    box = 3;
+    }else{
+      $("#cke_editor").hide();
+      $("textarea").remove();
+  };
+});
+</script>
   </body>
 
 
 
-  <script>
-  $("#formulaire").click(function(){
-     
-    $.ajax({
-       url : '../php/formulaire_enregistrement.php', // La ressource ciblée
-       type : 'GET',
-       success: function(data){
-        $("#contenu_dyna").html(data);
-        }
-    	});
-	});
-  </script>
 
 
