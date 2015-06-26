@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2015 at 09:26 AM
+-- Generation Time: Jun 26, 2015 at 10:05 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -30,11 +30,20 @@ CREATE TABLE IF NOT EXISTS `estienregistrement` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `estiId` varchar(255) NOT NULL,
   `iduser` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
   `title` varchar(100) NOT NULL,
   `contenu` text NOT NULL,
+  `created` date NOT NULL,
   `active` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `estienregistrement`
+--
+
+INSERT INTO `estienregistrement` (`id`, `estiId`, `iduser`, `type`, `title`, `contenu`, `created`, `active`) VALUES
+(1, 'test', 1, 0, 'test datatable', 'yoloylyolyoyloylyoloy', '2015-06-25', 1);
 
 -- --------------------------------------------------------
 
