@@ -8,3 +8,10 @@ function getAllEnregistrement($dbh, $iduser)
 	return $stmt->fetchAll();
 }
 
+function  getEnregistrementByEstiID($dbh, $estiId)
+{
+	$stmt = $dbh->prepare("SELECT * FROM estienregistrement WHERE estiId = :estiId");
+	$stmt->bindParam(':estiId', $estiId);
+	$stmt->execute();
+	return $stmt->fetchAll();
+}

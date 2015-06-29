@@ -3,11 +3,7 @@
 require_once "connectdb.php";
 require_once "../model/userModel.php";
 
-$stmt = $dbh->prepare("SELECT COUNT(*) as nb FROM estiuser WHERE email=:email AND password=:password");
-$stmt->bindParam(':email', $_POST['email']);
-$stmt->bindParam(':password', $_POST['password']);
-$stmt->execute();
-$row = $stmt->fetch();
+$row = 	access($dbh, $_POST);
 if ($row['nb'] == 1) {
 	//Ok on est redirige sur le backoffice
 	session_start();

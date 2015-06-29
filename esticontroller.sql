@@ -2,10 +2,10 @@
 -- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 26, 2015 at 10:05 AM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
+-- Client :  127.0.0.1
+-- Généré le :  Lun 29 Juin 2015 à 10:11
+-- Version du serveur :  5.6.17
+-- Version de PHP :  5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `esticontroller`
+-- Base de données :  `esticontroller`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `estienregistrement`
+-- Structure de la table `estienregistrement`
 --
 
 CREATE TABLE IF NOT EXISTS `estienregistrement` (
@@ -39,16 +39,52 @@ CREATE TABLE IF NOT EXISTS `estienregistrement` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `estienregistrement`
+-- Contenu de la table `estienregistrement`
 --
 
 INSERT INTO `estienregistrement` (`id`, `estiId`, `iduser`, `type`, `title`, `contenu`, `created`, `active`) VALUES
-(1, 'test', 1, 0, 'test datatable', 'yoloylyolyoyloylyoloy', '2015-06-25', 1);
+(1, 'test', 1, 2, 'test datatable', 'yoloylyolyoyloylyoloy', '2015-06-25', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `estiuser`
+-- Structure de la table `estistat`
+--
+
+CREATE TABLE IF NOT EXISTS `estistat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL,
+  `estiId` varchar(255) NOT NULL,
+  `date_pass` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `estistat`
+--
+
+INSERT INTO `estistat` (`id`, `userId`, `estiId`, `date_pass`) VALUES
+(1, 4, 'test', '2015-06-29'),
+(2, 5, 'test', '2015-06-29');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `estitime`
+--
+
+CREATE TABLE IF NOT EXISTS `estitime` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL,
+  `estiId` varchar(255) NOT NULL,
+  `time_connect` timestamp NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `estiuser`
 --
 
 CREATE TABLE IF NOT EXISTS `estiuser` (
@@ -59,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `estiuser` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `estiuser`
+-- Contenu de la table `estiuser`
 --
 
 INSERT INTO `estiuser` (`id`, `email`, `password`) VALUES
