@@ -96,7 +96,7 @@ $all_enregistrement = getAllEnregistrement($dbh, $_SESSION['id']);
       		  			echo "<td>" .$key['id']. "</td>";
       		  			echo "<td>" .$key['title']. "</td>";
       		  			echo "<td>" .$key['created']. "</td>";
-      		  			echo "<td>TOTO</td>";
+      		  			echo "<td><img src='../croix.png'></td>";
       		  			echo "</tr>";
       		  		}
       		  	?>
@@ -111,7 +111,7 @@ $all_enregistrement = getAllEnregistrement($dbh, $_SESSION['id']);
             <input name="Title" type="text" class="form-control input-lg" placeholder="Title">
         </div>
         <div class="form-group">
-            <input name="Estimote Id" type="password" class="form-control input-lg" placeholder="Estimote Id">
+            <input name="Estimote Id" type="text" class="form-control input-lg" placeholder="Estimote Id">
         </div>
         <div class="form-group">
             <input id="1" type="checkbox" placeholder="Estimote Id"> : Time </br>
